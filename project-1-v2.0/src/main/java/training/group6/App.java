@@ -4,12 +4,26 @@ import training.group6.Modeling.User;
 import training.group6.Services.BankServices;
 import java.util.ArrayList;
 
+/**
+ * This is the main class for the application.
+ */
 public class App {
+    /**
+     * The entry point .
+     *
+     * @param args --not for this application .
+     */
     public static void main(String[] args) {
 
         ArrayList<User> userList = new ArrayList<>();
-
+	
+	/**
+ 	*This loop simulates user banking behaviors
+ 	*/
         while (true) {
+		/**
+ 		*read user input
+ 		*/
             Scanner scanner = new Scanner(System.in);
             System.out.println("Enter username: ");
             String username = scanner.nextLine();
@@ -19,7 +33,9 @@ public class App {
 
             boolean found = false; //user existed?
             User currentUser = null; // initial current user
-
+	    /**
+ 	    *this loop for login if user existed
+ 	    */
             for (int i = 0; i < userList.size(); i++) {
                 if (userList.get(i).getUsername().equals(username) && userList.get(i).getPassword().equals(password)) {
                     found = true;
@@ -28,7 +44,9 @@ public class App {
                     break; // Exit the loop
                 }
             }
-
+	     /**
+ 	    *this block for register if user is not existed,and add to Collection
+ 	    */
             if (!found) {
                 // user is not existed, perform registration
                 currentUser = new User(username, password);

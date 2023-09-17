@@ -1,6 +1,8 @@
 package training.group6.Modeling;
 
-// User class
+    /**
+    * User class,user data model
+    */
     public class User {
     private String username;
     private String password;

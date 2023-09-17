@@ -2,13 +2,23 @@ package training.group6.Services;
 import training.group6.Modeling.User;
 
 public class BankServices {
-    // Method to deposit money
+    /**
+     * Deposits money.
+     *
+     * @param user --user object.
+     * @param amount --amount to deposit.
+     */
     public static void deposit(User user, double amount) {
         user.setBalance(user.getBalance() + amount);
         System.out.println("Deposited $" + amount + " successfully.");
     }
 
-    // Method to withdraw money
+    /**
+     * Withdraws money, if available.
+     *
+     * @param user--user object.
+     * @param amount--amount to withdraw.
+     */
     public static void withdraw(User user, double amount) {
         if (user.getBalance() >= amount) {
             user.setBalance(user.getBalance() - amount);
@@ -18,7 +28,12 @@ public class BankServices {
         }
     }
 
-    // Method to check balance (inquiry)
+    /**
+     * Checks balance.
+     *
+     * @param user--user object.
+     * @return current balance.
+     */
     public static double checkBalance(User user) {
         return user.getBalance();
     }
