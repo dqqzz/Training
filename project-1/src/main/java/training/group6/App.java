@@ -11,9 +11,9 @@ public class App {
     /**
      * The entry point .
      *
-     * @param args --not for this application 
-     * @param user the object of class User from Modeling layer
-     * @param userList The List to store all User objects
+     * @param 'args' --not for this application
+     * @param 'user' the object of class User from Modeling layer
+     * @param 'userList' The List to store all User objects
      */
     public static void main(String[] args) {
 
@@ -29,10 +29,10 @@ public class App {
 	    *param password User object property
  	    */
             Scanner scanner = new Scanner(System.in);
-            System.out.println("Enter username: ");
+            System.out.println("Enter username(required): ");
             String username = scanner.nextLine();
 
-            System.out.println("Enter password: ");
+            System.out.println("Enter password(required): ");
             String password = scanner.nextLine();
 
             boolean found = false; //@param found indicate whether the user exists?
