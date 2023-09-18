@@ -12,7 +12,7 @@ public class App {
      * The entry point .
      *
      * @param 'args' --not for this application
-     * @param 'user' the object of class User from Modeling layer
+     * @param 'user' The object of class User from Modeling layer
      * @param 'userList' The List to store all User objects
      */
     public static void main(String[] args) {
