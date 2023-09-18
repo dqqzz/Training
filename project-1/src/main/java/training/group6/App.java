@@ -11,7 +11,9 @@ public class App {
     /**
      * The entry point .
      *
-     * @param args --not for this application .
+     * @param args --not for this application 
+     * @param user the object of class User from Modeling layer
+     * @param userList The List to store all User objects
      */
     public static void main(String[] args) {
 
@@ -21,9 +23,11 @@ public class App {
  	*This loop simulates user banking behaviors
  	*/
         while (true) {
-		/**
- 		*read user input
- 		*/
+	    /**
+ 	    *@param scanner read user input
+	    *@param username User object property
+	    *param password User object property
+ 	    */
             Scanner scanner = new Scanner(System.in);
             System.out.println("Enter username: ");
             String username = scanner.nextLine();
@@ -31,10 +35,11 @@ public class App {
             System.out.println("Enter password: ");
             String password = scanner.nextLine();
 
-            boolean found = false; //user existed?
-            User currentUser = null; // initial current user
+            boolean found = false; //@param found indicate whether the user exists?
+            User currentUser = null; //@param currentUser initial current user as null
 	    /**
- 	    *this loop for login if user existed
+ 	    *This loop is used for login when a user exists
+	    *equals() The built-in Java method to determine if strings are equal
  	    */
             for (int i = 0; i < userList.size(); i++) {
                 if (userList.get(i).getUsername().equals(username) && userList.get(i).getPassword().equals(password)) {
@@ -46,11 +51,11 @@ public class App {
             }
 	     /**
  	    *this block for register if user is not existed,and add to Collection
- 	    */
+	    */
             if (!found) {
                 // user is not existed, perform registration
                 currentUser = new User(username, password);
-                userList.add(currentUser); // Add the new user to the Collection
+                userList.add(currentUser); // Add the new user to the List
                 System.out.println("Register successful!");
             }
 
@@ -62,6 +67,11 @@ public class App {
             System.out.println("4. Exit");
 
             int choice = scanner.nextInt();
+	    /**
+ 	    *@deposit() The static method invoked from class BankServices in Service layer
+	    *@withdraw() The static method invoked from class BankServices in Service layer
+	    *@checkBalance() The static method invoked from class BankServices in Service layer
+ 	    */
             switch (choice) {
                 case 1:
                     System.out.println("Enter deposit amount: ");
@@ -85,8 +95,9 @@ public class App {
                     System.out.println("Invalid option.");
 
             }
-            System.out.println(currentUser.getBalance());
-            System.out.println(userList.size()); // Print the size of the Collection
+            //System.out.println(currentUser.getBalance());
+	    // Print the size of the List
+            System.out.println("The total number of registered users at the bank is: " + userList.size()); 
         }
     }
 }
